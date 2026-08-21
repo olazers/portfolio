@@ -46,25 +46,25 @@ I am building practical, hands-on experience alongside certifications, with an e
 
 ## 🎓 Certifications & Learning Roadmap
 
-| Period            | Focus                  | Certification / Goal       |
-| ----------------- | ---------------------- | -------------------------- |
-| Jul–Aug 2026      | Cloud & AI Foundations | ✅ AZ-900                   |
-| Jul–Aug 2026      | AI Fundamentals        | ✅ AI-900                   |
-| Aug 2026          | Data Fundamentals      | ✅ DP-900                   |
-| Aug 2026          | Security Fundamentals  | 🔄 SC-900                  |
-| Sep–Oct 2026      | Azure Engineering      | 🎯 AZ-104                  |
-| Sep–Oct 2026      | Cloud Automation       | 🐍 Python + Linux          |
-| Nov 2026          | Networking             | 🎯 CCNA                    |
-| Dec 2026          | Azure Networking       | 🎯 AZ-700                  |
-| Jan–Feb 2027      | AI Engineering         | 🎯 AI-103                  |
-| Feb 2027          | Advanced AI            | 🤖 Multi-Agent AI          |
-| Mar–Apr 2027      | Data Engineering       | 🎯 DP-700                  |
-| May–Jun 2027      | Cloud Architecture     | 🎯 AZ-305                  |
-| Jul–Aug 2027      | Multi-Cloud            | ☁️ AWS Solutions Architect |
-| Sep–Oct 2027      | IaC & Cloud Native     | 🎯 Terraform + CKA         |
-| Nov 2027          | DevOps                 | 🎯 AZ-400                  |
-| Dec 2027–Jan 2028 | Cloud Security         | 🎯 Security+ + SC-500      |
-| Feb–Mar 2028      | Portfolio & Career     | 🚀 Flagship Projects       |
+| Period            | Focus                            | Certification / Goal       |
+| ----------------- | -------------------------------- | -------------------------- |
+| Jul–Aug 2026      | Cloud & AI Foundations           | ✅ AZ-900                  |
+| Jul–Aug 2026      | AI Fundamentals                  | ✅ AI-900                  |
+| Aug 2026          | Data Fundamentals                | ✅ DP-900                  |
+| Aug 2026          | Security Fundamentals            | 🔄 SC-900                  |
+| Sep–Oct 2026      | Azure Engineering                | 🎯 AZ-104                  |
+| Sep–Oct 2026      | Cloud Automation                 | 🐍 Python + Linux          |
+| Nov 2026          | Networking                       | 🎯 CCNA                    |
+| Dec 2026          | Azure Networking                 | 🎯 AZ-700                  |
+| Jan–Feb 2027      | AI Engineering                   | 🎯 AI-103                  |
+| Feb 2027          | Advanced AI                      | 🤖 Multi-Agent AI          |
+| Mar–Apr 2027      | Data Engineering                 | 🎯 DP-700                  |
+| May–Jun 2027      | Cloud Architecture               | 🎯 AZ-305                  |
+| Jul–Aug 2027      | Multi-Cloud                      | ☁️ AWS Solutions Architect |
+| Sep–Oct 2027      | IaC & Cloud Native               | 🎯 Terraform + CKA         |
+| Nov 2027          | DevOps + DevSecOps               | 🎯 AZ-400                  |
+| Dec 2027–Jan 2028 | Advanced Cloud + AI Security     | 🎯 Security+ + SC-500      |
+| Feb–Mar 2028      | Portfolio & Career               | 🚀 Flagship Projects       |
 
 ---
 
@@ -150,42 +150,61 @@ Planned capabilities:
 * Azure
 * AWS
 * Networking
-* Security
+* IaC security scanning
+* Container image scanning
+* Kubernetes RBAC and secrets
 * Monitoring
 
 ---
 
-### 🚀 6. End-to-End CI/CD Platform
+### 🚀 6. DevSecOps CI/CD Platform
 
-**Focus:** DevOps automation
+**Focus:** DevOps + security automation
 
-**GitHub → GitHub Actions → Terraform → Cloud → Docker → Kubernetes → Monitoring**
+**GitHub → Security Scanning → GitHub Actions → Terraform → Security Gate → Cloud → Docker → Container Scanning → Kubernetes → Monitoring**
 
 Planned capabilities:
 
 * CI/CD
 * Automated testing
+* SAST / code scanning
+* Dependency vulnerability scanning
+* Secret scanning
+* Infrastructure as Code security scanning
+* Container image scanning
+* Security gates
+* SBOM basics
 * Infrastructure deployment
 * Container deployment
 * Release automation
-* Monitoring and alerts
+* Monitoring and security alerts
 
 ---
 
-### 🛡️ 7. Secure Cloud Architecture
+### 🛡️ 7. Cloud Security + Detection & Response Platform
 
-**Focus:** Cloud + AI security
+**Focus:** Cloud security + security operations
 
 Planned capabilities:
 
-* Identity
-* RBAC
+* Identity and RBAC
 * Network security
 * Secrets management
-* Policies
-* Threat modeling
+* Azure Policy
+* Microsoft Defender for Cloud
+* Microsoft Defender XDR
+* Microsoft Sentinel
+* SIEM / SOAR concepts
+* KQL
 * Security monitoring
+* Detection rules and alerts
+* Incident investigation
+* Threat detection
+* MITRE ATT&CK
+* Threat modeling
+* Zero Trust
 * AI security
+* Response and remediation
 
 ---
 
@@ -229,7 +248,7 @@ Planned capabilities:
 * Firewalls
 * Azure Networking
 
-### ⚙️ Infrastructure & DevOps
+### ⚙️ Infrastructure, DevOps & DevSecOps
 
 * Git
 * GitHub
@@ -239,6 +258,14 @@ Planned capabilities:
 * Kubernetes
 * Infrastructure as Code
 * CI/CD
+* SAST / code scanning
+* Dependency scanning
+* Secret scanning
+* IaC security scanning
+* Container image scanning
+* Security gates
+* Policy as Code
+* SBOM
 
 ### 📊 Data
 
@@ -255,7 +282,19 @@ Planned capabilities:
 * RBAC
 * Network security
 * Secrets management
-* Governance
+* Azure Key Vault
+* Azure Policy
+* Microsoft Defender for Cloud
+* Microsoft Defender XDR
+* Microsoft Sentinel
+* SIEM / SOAR
+* KQL
+* Security monitoring
+* Threat detection
+* Incident investigation
+* Vulnerability management
+* MITRE ATT&CK
+* Zero Trust
 * Threat modeling
 * Security architecture
 
@@ -336,24 +375,26 @@ My long-term goal is to develop the technical and architectural skills required 
 
 The journey:
 
-**Cloud Foundations**
-↓
-**Cloud Engineering**
-↓
-**Networking & Infrastructure**
-↓
-**AI Engineering**
-↓
-**Data Engineering**
-↓
-**Cloud Architecture**
-↓
-**Multi-Cloud**
-↓
-**Cloud Native & DevOps**
-↓
-**Cloud Security**
-↓
+**Cloud Foundations**  
+↓  
+**Cloud Engineering**  
+↓  
+**Networking & Infrastructure**  
+↓  
+**AI Engineering**  
+↓  
+**Data Engineering**  
+↓  
+**Cloud Architecture**  
+↓  
+**Multi-Cloud**  
+↓  
+**Cloud Native & DevOps**  
+↓  
+**DevSecOps**  
+↓  
+**Cloud & AI Security**  
+↓  
 **Solutions Architecture & Consulting**
 
 ---
