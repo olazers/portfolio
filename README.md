@@ -4,7 +4,9 @@
 
 Welcome to my professional learning and engineering portfolio.
 
-This repository documents my journey toward becoming a **Cloud Engineer, Solutions Architect, and Cloud Consultant**, with a focus on **Azure, AWS, AI, networking, automation, security, infrastructure as code, and cloud-native technologies**.
+This repository documents my journey toward becoming a **Cloud Engineer, Solutions Architect, and Cloud Consultant**, while developing additional specialization in **Cloud Security and DevSecOps**.
+
+My focus includes **Azure, AWS, AI, networking, automation, security, infrastructure as code, and cloud-native technologies**.
 
 My approach is simple:
 
@@ -12,9 +14,11 @@ My approach is simple:
 
 ---
 
-## 🎯 Career Goal
+## 🎯 Career Direction
 
-**Cloud Engineer → Solutions Architect → Cloud Consultant**
+**Primary:** Cloud Engineer → Solutions Architect → Cloud Consultant
+
+**Additional Specialization:** Cloud Security + DevSecOps
 
 I am building practical, hands-on experience alongside certifications, with an emphasis on understanding **how cloud systems are designed, deployed, secured, automated, monitored, and optimized in real-world environments.**
 
@@ -37,34 +41,59 @@ I am building practical, hands-on experience alongside certifications, with an e
 * Linux
 * Python automation
 * Networking
+* Identity and access management
+* Cloud security fundamentals
 * Infrastructure as Code
 * AI applications
 * Data engineering
 * Cloud architecture
+* DevOps and DevSecOps
 
 ---
 
 ## 🎓 Certifications & Learning Roadmap
 
-| Period            | Focus                            | Certification / Goal       |
-| ----------------- | -------------------------------- | -------------------------- |
-| Jul–Aug 2026      | Cloud & AI Foundations           | ✅ AZ-900                  |
-| Jul–Aug 2026      | AI Fundamentals                  | ✅ AI-900                  |
-| Aug 2026          | Data Fundamentals                | ✅ DP-900                  |
-| Aug 2026          | Security Fundamentals            | 🔄 SC-900                  |
-| Sep–Oct 2026      | Azure Engineering                | 🎯 AZ-104                  |
-| Sep–Oct 2026      | Cloud Automation                 | 🐍 Python + Linux          |
-| Nov 2026          | Networking                       | 🎯 CCNA                    |
-| Dec 2026          | Azure Networking                 | 🎯 AZ-700                  |
-| Jan–Feb 2027      | AI Engineering                   | 🎯 AI-103                  |
-| Feb 2027          | Advanced AI                      | 🤖 Multi-Agent AI          |
-| Mar–Apr 2027      | Data Engineering                 | 🎯 DP-700                  |
-| May–Jun 2027      | Cloud Architecture               | 🎯 AZ-305                  |
-| Jul–Aug 2027      | Multi-Cloud                      | ☁️ AWS Solutions Architect |
-| Sep–Oct 2027      | IaC & Cloud Native               | 🎯 Terraform + CKA         |
-| Nov 2027          | DevOps + DevSecOps               | 🎯 AZ-400                  |
-| Dec 2027–Jan 2028 | Advanced Cloud + AI Security     | 🎯 Security+ + SC-500      |
-| Feb–Mar 2028      | Portfolio & Career               | 🚀 Flagship Projects       |
+| Period | Focus | Certification / Goal |
+| --- | --- | --- |
+| Jul–Aug 2026 | Cloud & AI Foundations | ✅ AZ-900 |
+| Jul–Aug 2026 | AI Fundamentals | ✅ AI-900 |
+| Aug 2026 | Data Fundamentals | ✅ DP-900 |
+| Aug 2026 | Security Fundamentals | 🔄 SC-900 |
+| Sep–Oct 2026 | Azure Engineering | 🎯 AZ-104 |
+| Sep–Oct 2026 | Cloud Automation | 🐍 Python + Linux |
+| Nov 2026 | Networking | 🎯 CCNA |
+| Dec 2026 | Azure Networking | 🎯 AZ-700 |
+| Jan–Feb 2027 | AI Engineering | 🎯 AI-103 |
+| Feb 2027 | Advanced AI | 🤖 Multi-Agent AI |
+| Mar–Apr 2027 | Data Engineering | 🎯 DP-700 |
+| May–Jun 2027 | Cloud Architecture | 🎯 AZ-305 |
+| Jul–Aug 2027 | Multi-Cloud | ☁️ AWS Solutions Architect |
+| Sep–Oct 2027 | IaC & Cloud Native | 🎯 Terraform + CKA |
+| Nov 2027 | DevOps + DevSecOps | 🎯 AZ-400 |
+| Dec 2027–Jan 2028 | Advanced Cloud + AI Security | 🎯 Security+ + SC-500 |
+| Feb–Mar 2028 | Portfolio & Career | 🚀 Flagship Projects |
+
+---
+
+## 🧪 Hands-On Projects
+
+### ☁️ Azure Blob Storage with RBAC and Microsoft Entra ID — ✅ Completed
+
+Built and documented an Azure Storage environment using a private Blob container, Microsoft Entra ID authentication, and Azure RBAC.
+
+**Hands-on work included:**
+
+* Azure StorageV2
+* Private Blob container
+* Microsoft Entra authentication
+* Storage Blob Data Contributor RBAC
+* Secure transfer and TLS 1.2
+* Blob and container soft delete
+* Authenticated Blob access and validation
+* Security and cost considerations
+* Architecture documentation
+
+➡️ [View Project](azure/foundations/azure-blob-rbac-lab/README.md)
 
 ---
 
@@ -409,6 +438,8 @@ The journey:
 
 **Career direction:** Cloud Engineer → Solutions Architect → Cloud Consultant
 
+**Specialization:** Cloud Security + DevSecOps
+
 **Portfolio:** Continuously evolving 🚀
 
 ---
@@ -417,7 +448,6 @@ The journey:
 
 * **GitHub:** https://github.com/olazers
 * **LinkedIn:** https://www.linkedin.com/olazers
-* **Portfolio Website:** Coming soon
 
 ---
 
