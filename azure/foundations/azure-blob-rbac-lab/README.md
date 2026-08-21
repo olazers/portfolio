@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This was my first hands-on Azure lab for my cloud engineering portfolio.
+This project documents my hands-on experience with Azure Blob Storage, Microsoft Entra ID, and Azure RBAC.
 
 The goal was to create an Azure Storage account, create a private Blob container, and securely access the Blob using Microsoft Entra ID and Azure RBAC.
 
