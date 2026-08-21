@@ -55,19 +55,25 @@ Azure Subscription
             └── hello-azure.txt
 ```
 
+### Azure Resource Hierarchy
+
+The Azure portal shows the storage account organized inside the `rg-portfolio-foundations` resource group.
+
+![Azure resource hierarchy](images/06-resource-hierarchy.png)
+
 ---
 
 ## Azure Services Used
 
-| Service               | Purpose                                    |
-| --------------------- | ------------------------------------------ |
-| Azure Resource Group  | Organized the resources for the lab        |
-| Azure Storage Account | Hosted the storage service                 |
-| Azure Blob Storage    | Stored the test file                       |
-| Microsoft Entra ID    | Provided user authentication               |
-| Azure RBAC            | Controlled access to Blob data             |
-| Azure Portal          | Used to configure and manage the resources |
-| Azure Storage Browser | Used to test access to the Blob            |
+| Service | Purpose |
+| --- | --- |
+| Azure Resource Group | Organized the resources for the lab |
+| Azure Storage Account | Hosted the storage service |
+| Azure Blob Storage | Stored the test file |
+| Microsoft Entra ID | Provided user authentication |
+| Azure RBAC | Controlled access to Blob data |
+| Azure Portal | Used to configure and manage the resources |
+| Azure Storage Browser | Used to test access to the Blob |
 
 ---
 
@@ -75,23 +81,29 @@ Azure Subscription
 
 I created a StorageV2 account with the following settings:
 
-| Setting                       | Configuration    |
-| ----------------------------- | ---------------- |
-| Performance                   | Standard         |
-| Replication                   | LRS              |
-| Location                      | East US          |
-| Access tier                   | Hot              |
-| Secure transfer               | Enabled          |
-| Minimum TLS                   | 1.2              |
-| Blob anonymous access         | Disabled         |
-| Microsoft Entra authorization | Enabled          |
-| Blob soft delete              | Enabled - 7 days |
-| Container soft delete         | Enabled - 7 days |
-| Public network access         | Enabled          |
+| Setting | Configuration |
+| --- | --- |
+| Performance | Standard |
+| Replication | LRS |
+| Location | East US |
+| Access tier | Hot |
+| Secure transfer | Enabled |
+| Minimum TLS | 1.2 |
+| Blob anonymous access | Disabled |
+| Microsoft Entra authorization | Enabled |
+| Blob soft delete | Enabled - 7 days |
+| Container soft delete | Enabled - 7 days |
+| Public network access | Enabled |
 
 I used Standard performance and LRS because this is a small learning environment and does not need the additional cost or redundancy of a production workload.
 
 The Hot access tier was also suitable because the test Blob was being actively accessed during the lab.
+
+### Storage Security Settings
+
+The storage account was configured with secure transfer enabled, TLS 1.2, anonymous Blob access disabled, and Microsoft Entra authorization enabled.
+
+![Azure Storage security configuration](images/02-storage-security.png)
 
 ---
 
@@ -131,6 +143,12 @@ This role gave my user the Blob data permissions needed for the lab.
 
 I assigned the role at the storage account level. For a larger environment, I would also consider whether the role could be assigned at a narrower scope based on what the user actually needs to access.
 
+### RBAC Role Assignment
+
+The screenshot below shows the `Storage Blob Data Contributor` role assigned to my Microsoft Entra user at the storage account scope.
+
+![Storage Blob Data Contributor RBAC role assignment](images/01-rbac-role-assignment.png)
+
 ---
 
 ## Authentication
@@ -142,6 +160,12 @@ Blob access was tested using:
 I did not use anonymous access for the container.
 
 I also did not use storage account keys, connection strings, or SAS tokens for the access method demonstrated in this lab.
+
+### Authenticated Blob Access
+
+The container was accessed using my Microsoft Entra user account rather than anonymous access.
+
+![Blob access using Microsoft Entra authentication](images/04-authenticated-blob-access.png)
 
 ---
 
@@ -171,6 +195,8 @@ Created:
 
 The container was configured as private.
 
+![Private Azure Blob container](images/03-private-container.png)
+
 ### 4. Configured RBAC
 
 I assigned my Microsoft Entra user the:
@@ -191,6 +217,10 @@ to the `portfolio-lab` container.
 
 I used Azure Storage Browser with Microsoft Entra authentication and confirmed that I could access the Blob.
 
+The uploaded `hello-azure.txt` Blob was successfully available in the private container.
+
+![Uploaded hello-azure.txt Blob](images/05-hello-azure.png)
+
 ---
 
 ## Validation
@@ -209,16 +239,16 @@ This confirmed that the RBAC permissions were working for Blob data access.
 
 ## Evidence
 
-Screenshots for this project are stored in the `screenshots` folder.
+Screenshots documenting the implementation and validation are stored in the `images` folder and included throughout this README.
 
-| Screenshot                         | Shows                                            |
-| ---------------------------------- | ------------------------------------------------ |
-| `01-rbac-role-assignment.png`      | Storage Blob Data Contributor assignment         |
-| `02-storage-security.png`          | Storage account security settings                |
-| `03-private-container.png`         | Private Blob container                           |
+| Screenshot | Shows |
+| --- | --- |
+| `01-rbac-role-assignment.png` | Storage Blob Data Contributor assignment |
+| `02-storage-security.png` | Storage account security settings |
+| `03-private-container.png` | Private Blob container |
 | `04-authenticated-blob-access.png` | Blob access using Microsoft Entra authentication |
-| `05-hello-azure.png`               | Uploaded `hello-azure.txt`                       |
-| `06-resource-hierarchy.png`        | Azure resource organization                      |
+| `05-hello-azure.png` | Uploaded `hello-azure.txt` |
+| `06-resource-hierarchy.png` | Azure resource organization |
 
 ---
 
