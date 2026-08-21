@@ -109,7 +109,7 @@ I also enabled Blob and container soft delete for 7 days. This provides a short 
 
 Public network access was enabled for this lab.
 
-I left this enabled because my main goal for the first lab was to learn Blob Storage, Microsoft Entra authentication, and RBAC without adding private networking yet.
+I left this enabled because my main goal for this lab was to learn Blob Storage, Microsoft Entra authentication, and RBAC without adding private networking yet.
 
 The container itself was still private. Anonymous Blob access was disabled, so accessing the data required authentication and the correct permissions.
 
@@ -295,7 +295,7 @@ Microsoft Entra ID identifies the user, while Azure RBAC determines what that us
 
 Even though this was only a learning environment, I disabled anonymous Blob access, enabled secure transfer, used TLS 1.2, and enabled soft delete.
 
-**4. Not every security feature needs to be added in the first lab.**
+**4. Not every security feature needs to be added in a foundational lab.**
 
 I intentionally left public network access enabled so I could focus on storage, identity, and RBAC first. Private networking can be added in a future lab.
 
