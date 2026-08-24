@@ -97,6 +97,30 @@ Built and documented an Azure Storage environment using a private Blob container
 
 ---
 
+### 🌐 Azure Secure Two-Tier Network Architecture — ✅ Completed
+
+Designed and deployed a secure two-tier network architecture in Microsoft Azure with separate web and application tiers.
+
+**Hands-on work included:**
+
+* Azure Virtual Network (VNet)
+* Dedicated web and application subnets
+* Network Security Groups (NSGs)
+* Linux virtual machines
+* Public-facing Nginx web tier
+* Private application tier with no public IP
+* Controlled web-to-app communication over TCP 8080
+* SSH administration
+* Private IP communication between Azure workloads
+* Network segmentation and access control
+* Connectivity testing and troubleshooting
+* VM deallocation for cloud cost management
+* Security-focused documentation and validation
+
+➡️ [View Project](azure/foundations/azure-secure-two-tier-network/README.md)
+
+---
+
 ## 🏗️ What I'm Building
 
 My goal is to move beyond certification-based learning and create **production-style projects** that demonstrate practical engineering ability.
