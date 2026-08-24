@@ -77,7 +77,7 @@ I am building practical, hands-on experience alongside certifications, with an e
 
 ## 🧪 Hands-On Projects
 
-### ☁️ Azure Blob Storage with RBAC and Microsoft Entra ID — ✅ Completed
+### ☁️ Azure Blob Storage with RBAC and Microsoft Entra ID - ✅ Completed
 
 Built and documented an Azure Storage environment using a private Blob container, Microsoft Entra ID authentication, and Azure RBAC.
 
@@ -97,7 +97,7 @@ Built and documented an Azure Storage environment using a private Blob container
 
 ---
 
-### 🌐 Azure Secure Two-Tier Network Architecture — ✅ Completed
+### 🌐 Azure Secure Two-Tier Network Architecture - ✅ Completed
 
 Designed and deployed a secure two-tier network architecture in Microsoft Azure with separate web and application tiers.
 
