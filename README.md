@@ -121,7 +121,7 @@ Designed and deployed a secure two-tier network architecture in Microsoft Azure 
 
 ---
 
-### 🔐 Azure Key Vault + Managed Identity — Passwordless Secret Access - ✅ Completed
+### 🔐 Azure Key Vault + Managed Identity - Passwordless Secret Access - ✅ Completed
 
 Built and validated a secure secret-management architecture that allows a private Azure virtual machine to access Azure Key Vault without storing passwords, access keys, or application credentials.
 
@@ -139,8 +139,8 @@ The lab extends the secure two-tier architecture by introducing **workload ident
 * Microsoft Key Vault service endpoint
 * Private application VM with no public IP
 * Trusted Launch, Secure Boot, and vTPM
-* Authorized secret retrieval validation — HTTP 200
-* Unauthorized secret modification validation — HTTP 403 Forbidden
+* Authorized secret retrieval validation - HTTP 200
+* Unauthorized secret modification validation - HTTP 403 Forbidden
 * Bicep infrastructure as code
 * Azure CLI template validation and deployment
 * Bicep What-If analysis
