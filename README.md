@@ -81,6 +81,8 @@ I am building practical, hands-on experience alongside certifications, with an e
 
 Built and documented an Azure Storage environment using a private Blob container, Microsoft Entra ID authentication, and Azure RBAC.
 
+One area I wanted to understand better was the difference between permission to manage an Azure resource and permission to access the actual data stored inside it.
+
 **Hands-on work included:**
 
 * Azure StorageV2
@@ -99,7 +101,9 @@ Built and documented an Azure Storage environment using a private Blob container
 
 ### 🌐 Azure Secure Two-Tier Network Architecture - ✅ Completed
 
-Designed and deployed a secure two-tier network architecture in Microsoft Azure with separate web and application tiers.
+Designed and deployed a two-tier Azure network with separate web and application tiers.
+
+The web tier can receive the required external traffic, while the application VM remains private with no public IP. Communication between the two tiers was tested over the Azure private network.
 
 **Hands-on work included:**
 
@@ -111,11 +115,14 @@ Designed and deployed a secure two-tier network architecture in Microsoft Azure 
 * Private application tier with no public IP
 * Controlled web-to-app communication over TCP 8080
 * SSH administration
+* SSH agent forwarding
 * Private IP communication between Azure workloads
 * Network segmentation and access control
 * Connectivity testing and troubleshooting
 * VM deallocation for cloud cost management
 * Security-focused documentation and validation
+
+One useful part of this project was working out how to securely administer the private application VM without adding a public IP or copying my private SSH key onto the web server.
 
 ➡️ [View Project](azure/foundations/azure-secure-two-tier-network/README.md)
 
@@ -125,7 +132,14 @@ Designed and deployed a secure two-tier network architecture in Microsoft Azure 
 
 Built and validated a secure secret-management architecture that allows a private Azure virtual machine to access Azure Key Vault without storing passwords, access keys, or application credentials.
 
-The lab extends the secure two-tier architecture by introducing **workload identity, least-privilege authorization, infrastructure as code, security monitoring, and governance**.
+A key part of this project was testing both allowed and denied operations instead of relying only on the configured role assignment:
+
+```text
+SecretGet → HTTP 200 OK
+SecretSet → HTTP 403 Forbidden
+```
+
+This confirmed that the VM could read the secret it needed while the managed identity was prevented from modifying secrets.
 
 **Hands-on work included:**
 
@@ -151,6 +165,8 @@ The lab extends the secure two-tier architecture by introducing **workload ident
 * Azure Policy governance
 * RBAC permission-model compliance validation
 * Security-focused evidence sanitization and documentation
+
+The monitoring portion also gave me useful troubleshooting experience when the Key Vault audit logs did not appear immediately and I had to verify the denied operation using the correct Log Analytics fields.
 
 ➡️ [View Project](azure/foundations/azure-keyvault-managed-identity/README.md)
 
