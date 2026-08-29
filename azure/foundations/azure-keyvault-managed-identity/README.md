@@ -1,4 +1,4 @@
-# Azure Key Vault + Managed Identity — Passwordless Secret Access
+# Azure Key Vault + Managed Identity - Passwordless Secret Access
 
 ## Overview
 
