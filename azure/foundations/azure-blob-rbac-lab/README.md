@@ -2,13 +2,11 @@
 
 ## Project Overview
 
-This was my first hands-on Azure portfolio lab.
+This project was my first hands-on Azure portfolio lab and focused on Azure Blob Storage, Microsoft Entra ID, and Azure RBAC.
 
-I wanted to learn how Azure Blob Storage works and, more importantly, understand how Microsoft Entra ID and Azure RBAC control access to data.
+The goal was to create a private Blob container and securely access the data using Microsoft Entra authentication and role-based access control.
 
-For this lab, I created an Azure Storage account, created a private Blob container, uploaded a test file, and used my Microsoft Entra identity to access the file.
-
-One of the main things I wanted to understand was the difference between being able to manage an Azure resource and being able to access the data stored inside it.
+A key part of the lab was understanding the difference between having permission to manage an Azure resource and having permission to access the data stored inside it.
 
 **Status:** Completed
 
@@ -16,16 +14,16 @@ One of the main things I wanted to understand was the difference between being a
 
 ## Objective
 
-For this lab, I wanted to:
+The main objectives were to:
 
 * Create a resource group and storage account
 * Create a private Blob container
-* Configure basic storage security settings
+* Configure basic storage security
 * Use Microsoft Entra ID for authentication
-* Use Azure RBAC to control access to Blob data
-* Upload a test file and confirm that I could access it
-* Understand the difference between management-plane and data-plane permissions
-* Document what I learned
+* Use Azure RBAC to control Blob data access
+* Upload and access a test file
+* Understand management-plane and data-plane permissions
+* Document and validate the configuration
 
 ---
 
@@ -60,7 +58,7 @@ Azure Subscription
 
 ### Azure Resource Hierarchy
 
-The Azure portal shows the storage account inside the `rg-portfolio-foundations` resource group.
+The storage account was organized inside the `rg-portfolio-foundations` resource group.
 
 ![Azure resource hierarchy](images/06-resource-hierarchy.png)
 
@@ -70,19 +68,19 @@ The Azure portal shows the storage account inside the `rg-portfolio-foundations`
 
 | Service | Purpose |
 | --- | --- |
-| Azure Resource Group | Kept the lab resources organized |
+| Azure Resource Group | Organized the lab resources |
 | Azure Storage Account | Hosted the storage service |
 | Azure Blob Storage | Stored the test file |
-| Microsoft Entra ID | Authenticated my user account |
-| Azure RBAC | Controlled access to the Blob data |
+| Microsoft Entra ID | Provided user authentication |
+| Azure RBAC | Controlled access to Blob data |
 | Azure Portal | Used to configure and manage the resources |
-| Azure Storage Browser | Used to test access to the Blob |
+| Azure Storage Browser | Used to test Blob access |
 
 ---
 
 ## Storage Configuration
 
-I created a StorageV2 account with the following settings:
+The StorageV2 account used the following settings:
 
 | Setting | Configuration |
 | --- | --- |
@@ -98,13 +96,13 @@ I created a StorageV2 account with the following settings:
 | Container soft delete | Enabled - 7 days |
 | Public network access | Enabled |
 
-I chose Standard performance and LRS because this was a small learning lab. I did not need the extra cost or redundancy of a production storage environment.
+Standard performance and LRS were enough for this lab because it was a small learning environment and did not require production-level redundancy.
 
-I also used the Hot access tier because I was actively accessing the test Blob during the lab.
+The Hot access tier was suitable because the test Blob was actively accessed during the lab.
 
 ### Storage Security Settings
 
-I enabled secure transfer, set the minimum TLS version to 1.2, disabled anonymous Blob access, and used Microsoft Entra authorization.
+Secure transfer was enabled, the minimum TLS version was set to 1.2, and anonymous Blob access was disabled.
 
 ![Azure Storage security configuration](images/02-storage-security.png)
 
@@ -112,27 +110,27 @@ I enabled secure transfer, set the minimum TLS version to 1.2, disabled anonymou
 
 ## Security Configuration
 
-I kept the Blob container private and disabled anonymous Blob access.
+The Blob container was kept private and anonymous Blob access was disabled.
 
-Instead of making the data publicly available, I used my Microsoft Entra identity together with Azure RBAC.
+Access to the data was handled through Microsoft Entra ID and Azure RBAC instead of making the container public.
 
-I also enabled Blob and container soft delete for 7 days. This gives a short recovery period if a Blob or container is deleted by mistake.
+Blob and container soft delete were also enabled for 7 days to provide a short recovery period if data was deleted by mistake.
 
-### Why I Left Public Network Access Enabled
+### Public Network Access
 
-Public network access was enabled for this lab.
+Public network access was intentionally left enabled.
 
-I made this choice because I wanted to focus first on Blob Storage, Microsoft Entra authentication, and RBAC without adding private networking at the same time.
+The main focus of this first lab was storage, identity, and RBAC. Adding private networking at the same time would have introduced another layer before the basic access model was understood.
 
-Even though public network access was enabled, the Blob container itself was still private. Anonymous Blob access was disabled, so authentication and the correct permissions were still required to access the data.
+The container itself remained private, so public network access did not mean anonymous access to the Blob data. Authentication and the correct permissions were still required.
 
-I planned to work with more advanced networking controls in later Azure labs.
+More restrictive networking is covered in later Azure projects.
 
 ---
 
 ## RBAC Configuration
 
-To access the Blob data, I assigned:
+Blob data access was provided using:
 
 **Role:** `Storage Blob Data Contributor`
 
@@ -140,13 +138,13 @@ To access the Blob data, I assigned:
 
 **Scope:** `olastorage01` storage account
 
-This role gave my user the Blob data permissions needed for the lab.
+The role provides the data permissions needed to work with Blobs.
 
-I assigned the role at the storage account level. This worked for the lab, but it also helped me understand that in a larger environment I should think carefully about assigning permissions at the narrowest scope that meets the requirement.
+For this lab, the role was assigned at the storage account level. In a larger environment, a narrower scope could be used when appropriate to reduce unnecessary access.
 
 ### RBAC Role Assignment
 
-The screenshot below shows the `Storage Blob Data Contributor` role assigned to my Microsoft Entra user.
+The screenshot below shows the `Storage Blob Data Contributor` role assignment.
 
 ![Storage Blob Data Contributor RBAC role assignment](images/01-rbac-role-assignment.png)
 
@@ -154,17 +152,20 @@ The screenshot below shows the `Storage Blob Data Contributor` role assigned to 
 
 ## Authentication
 
-I tested Blob access using:
+Blob access was tested using **Microsoft Entra ID authentication**.
 
-**Microsoft Entra ID authentication**
+The demonstrated access method did not use:
 
-I did not use anonymous access.
+* Anonymous access
+* Storage account keys
+* Connection strings
+* SAS tokens
 
-I also did not use storage account keys, connection strings, or SAS tokens for the access method demonstrated in this lab.
+This allowed the Blob to remain private while access was tied to an authenticated Azure identity.
 
 ### Authenticated Blob Access
 
-I accessed the private container using my Microsoft Entra user account.
+The private container was successfully accessed using Microsoft Entra authentication.
 
 ![Blob access using Microsoft Entra authentication](images/04-authenticated-blob-access.png)
 
@@ -172,53 +173,53 @@ I accessed the private container using my Microsoft Entra user account.
 
 ## Implementation
 
-### 1. Created the Resource Group
+### 1. Resource Group
 
-I created:
+Created:
 
 `rg-portfolio-foundations`
 
-I used a separate resource group so I could keep my Azure portfolio resources organized.
+This keeps the Azure portfolio resources organized in one resource group.
 
-### 2. Created the Storage Account
+### 2. Storage Account
 
-I created:
+Created:
 
 `olastorage01`
 
-I then configured the storage and security settings for the lab.
+The storage and security settings listed above were then configured.
 
-### 3. Created the Blob Container
+### 3. Private Blob Container
 
-I created:
+Created:
 
 `portfolio-lab`
 
-I configured the container as private.
+Anonymous access was disabled.
 
 ![Private Azure Blob container](images/03-private-container.png)
 
-### 4. Configured RBAC
+### 4. RBAC
 
-I assigned my Microsoft Entra user the:
+The Microsoft Entra user was assigned:
 
 `Storage Blob Data Contributor`
 
-role at the storage account scope.
+at the storage account scope.
 
-### 5. Uploaded a Test File
+### 5. Test File
 
-I uploaded:
+Uploaded:
 
 `hello-azure.txt`
 
 to the `portfolio-lab` container.
 
-### 6. Tested Access
+### 6. Access Test
 
-I used Azure Storage Browser with Microsoft Entra authentication and confirmed that I could access the Blob.
+Azure Storage Browser was used with Microsoft Entra authentication to test access.
 
-The uploaded `hello-azure.txt` file was successfully available inside the private container.
+The `hello-azure.txt` Blob was successfully available inside the private container.
 
 ![Uploaded hello-azure.txt Blob](images/05-hello-azure.png)
 
@@ -226,24 +227,22 @@ The uploaded `hello-azure.txt` file was successfully available inside the privat
 
 ## Validation
 
-After completing the configuration, I checked each part of the lab.
+The final configuration was checked to confirm:
 
-I confirmed that:
-
-* The resource group and storage account were created successfully
+* The storage account was created successfully
 * The `portfolio-lab` container was private
 * Anonymous Blob access was disabled
-* My Microsoft Entra user had the `Storage Blob Data Contributor` role
+* The Microsoft Entra user had the `Storage Blob Data Contributor` role
 * `hello-azure.txt` uploaded successfully
-* I could access the Blob using Microsoft Entra authentication
+* The Blob could be accessed using Microsoft Entra authentication
 
-This confirmed that my RBAC configuration was working for Blob data access.
+The successful access test confirmed that the Blob data RBAC permissions were working.
 
 ---
 
 ## Evidence
 
-Screenshots from the lab are stored in the `images` folder and included throughout this README.
+Screenshots from the implementation and validation are stored in the `images` folder.
 
 | Screenshot | Shows |
 | --- | --- |
@@ -258,9 +257,9 @@ Screenshots from the lab are stored in the `images` folder and included througho
 
 ## Security Considerations
 
-Before publishing my screenshots, I reviewed them and removed information that should not be exposed in a public repository.
+Before publishing the screenshots, sensitive or unnecessary account information was removed.
 
-This included items such as:
+This included:
 
 * Subscription ID
 * Tenant ID
@@ -272,27 +271,27 @@ This included items such as:
 * Access tokens
 * Passwords or secrets
 
-I only included screenshots that were safe to publish.
+Only sanitized screenshots are included in the public repository.
 
 ---
 
 ## Cost Considerations
 
-I kept this lab small to avoid unnecessary Azure costs.
+This lab was kept small and inexpensive.
 
-I used Standard storage with LRS and stored only a small test file. There were no virtual machines or other compute resources running for this project.
+Standard storage with LRS was used, and only a small test file was stored. There were no virtual machines or other compute resources running as part of the project.
 
-This also helped me start thinking about cost when choosing Azure resources, even for small labs.
+This kept the focus on learning the storage and access-control concepts without adding unnecessary Azure costs.
 
 ---
 
 ## What I Learned
 
-The biggest lesson for me was understanding that **managing an Azure resource and accessing its data are not the same thing**.
+The biggest lesson from this lab was the difference between **management-plane permissions** and **data-plane permissions**.
 
-Before this lab, it would have been easy for me to assume that someone who can manage a storage account should automatically be able to access the files inside it.
+Being able to manage a storage account does not automatically mean a user can access the files stored inside it.
 
-Azure separates these permissions.
+Azure separates the two:
 
 ```text
 Management Plane
@@ -305,26 +304,21 @@ Data Plane
 Access Containers and Blobs
 ```
 
-My Microsoft Entra identity authenticated who I was, but I still needed the correct Azure RBAC role to access the Blob data.
+Microsoft Entra ID handles authentication, while Azure RBAC determines what the authenticated identity is allowed to do.
 
-For this lab, that role was:
+For Blob data access in this lab, the required role was:
 
 `Storage Blob Data Contributor`
 
-I also learned that authentication and authorization are different:
+This lab also helped me understand why cloud security is easier to learn in layers. I focused first on storage, identity, and RBAC instead of trying to add every security feature at once.
 
-* **Microsoft Entra ID** authenticated my identity.
-* **Azure RBAC** controlled what my identity was allowed to do.
-
-Another lesson was that I do not need to add every Azure security feature to the first lab.
-
-I intentionally left public network access enabled because I wanted to understand storage, identity, and RBAC first. This allowed me to learn one layer at a time before moving into private networking and more advanced security controls in later projects.
+That foundation made the networking and identity controls in my later Azure labs easier to understand.
 
 ---
 
 ## Future Improvements
 
-As I continue learning Azure, I can build on this project by adding:
+This project can be extended with:
 
 * Storage firewall rules
 * Private Endpoints
@@ -336,7 +330,7 @@ As I continue learning Azure, I can build on this project by adding:
 * Infrastructure as Code
 * Automated configuration and validation
 
-Some of these areas are covered in later projects in this portfolio as I continue building on the foundation from this lab.
+Some of these controls are introduced in later projects as the portfolio progresses from basic Azure services to networking, workload identity, monitoring, and governance.
 
 ---
 
@@ -358,4 +352,4 @@ Some of these areas are covered in later projects in this portfolio as I continu
 
 **Completed**
 
-This was my first Azure portfolio lab and gave me a practical foundation in Azure Storage, Microsoft Entra ID, RBAC, private Blob access, and basic Azure security.
+This project provided the foundation for my later Azure labs by introducing storage, identity, RBAC, private Blob access, security configuration, and validation.
