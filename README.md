@@ -58,7 +58,7 @@ I am building practical, hands-on experience alongside certifications, with an e
 | Jul–Aug 2026 | Cloud & AI Foundations | ✅ AZ-900 |
 | Jul–Aug 2026 | AI Fundamentals | ✅ AI-900 |
 | Aug 2026 | Data Fundamentals | ✅ DP-900 |
-| Aug 2026 | Security Fundamentals | 🔄 SC-900 |
+| Aug 2026 | Security Fundamentals | ✅ SC-900 |
 | Sep–Oct 2026 | Azure Engineering | 🎯 AZ-104 |
 | Sep–Oct 2026 | Cloud Automation | 🐍 Python + Linux |
 | Nov 2026 | Networking | 🎯 CCNA |
