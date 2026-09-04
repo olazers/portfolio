@@ -538,7 +538,7 @@ The journey:
 
 # 📌 Portfolio Status
 
-**Current stage:** Cloud & AI Foundations
+**Current stage:** Azure Engineering (AZ-104)
 
 **Primary cloud:** Microsoft Azure
 
