@@ -172,6 +172,39 @@ The monitoring portion also gave me useful troubleshooting experience when the K
 
 ---
 
+### 🖥️ Azure VM Operations, Monitoring & Recovery - ✅ Completed
+
+Operated and tested an existing private Azure Linux VM with a focus on storage, monitoring, alerting, backup, recovery, infrastructure as code, and cost management.
+
+A major troubleshooting exercise was finding that the Azure platform CPU metric did not reflect the workload inside the VM. Linux tools and OpenTelemetry guest metrics both showed the VM reaching 100% CPU, so I traced the monitoring path instead of lowering the alert threshold just to make the test pass.
+
+**Hands-on work included:**
+
+* Azure managed disks and persistent Linux mounts
+* Standard SSD data disk
+* Azure Monitor Agent
+* OpenTelemetry guest metrics
+* Data Collection Rules
+* CPU, memory, disk, filesystem, and network monitoring
+* Azure Monitor alerts and action groups
+* NAT Gateway for explicit outbound connectivity
+* Monitoring-agent troubleshooting
+* Azure Recovery Services vault
+* Enhanced VM backup policy
+* File-system consistent recovery point
+* Real file deletion and file-level recovery test
+* Read-only recovery disk mounting
+* Bicep infrastructure as code
+* Bicep What-If analysis and deployment
+* Trusted Launch VM operations
+* Security and cost cleanup
+
+The recovery test went beyond checking that a backup job succeeded. I deleted a file from the managed data disk, connected the Azure recovery point, located the backed-up data disk, mounted it read-only, restored the deleted file, and validated the recovered content.
+
+➡️ [View Project](azure/foundations/azure-vm-operations-monitoring-recovery/README.md)
+
+---
+
 ## 🏗️ What I'm Building
 
 My goal is to move beyond certification-based learning and create **production-style projects** that demonstrate practical engineering ability.
