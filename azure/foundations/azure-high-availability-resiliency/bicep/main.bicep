@@ -36,6 +36,12 @@ param healthProbeName string = 'probe-http-ha-web'
 @description('Load balancing rule for HTTP traffic.')
 param loadBalancingRuleName string = 'rule-http-ha-web'
 
+@description('First zone-separated backend VM.')
+param vm01Name string = 'vm-ha-web-01'
+
+@description('Second zone-separated backend VM.')
+param vm02Name string = 'vm-ha-web-02'
+
 
 // Existing network resources
 
@@ -88,4 +94,26 @@ resource healthProbe 'Microsoft.Network/loadBalancers/probes@2024-05-01' existin
 resource loadBalancingRule 'Microsoft.Network/loadBalancers/loadBalancingRules@2024-05-01' existing = {
   parent: loadBalancer
   name: loadBalancingRuleName
+}
+
+
+// Existing highly available backend VMs
+
+resource vm01 'Microsoft.Compute/virtualMachines@2024-07-01' existing = {
+  name: vm01Name
+}
+
+resource vm02 'Microsoft.Compute/virtualMachines@2024-07-01' existing = {
+  name: vm02Name
+}
+
+
+// Existing VM network interfaces
+
+resource vm01Nic 'Microsoft.Network/networkInterfaces@2024-05-01' existing = {
+  name: '${vm01Name}-nic'
+}
+
+resource vm02Nic 'Microsoft.Network/networkInterfaces@2024-05-01' existing = {
+  name: '${vm02Name}-nic'
 }
