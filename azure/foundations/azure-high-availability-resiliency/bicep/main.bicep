@@ -14,3 +14,16 @@ param subnetName string = 'snet-ha-web'
 
 @description('Network security group for the HA web tier.')
 param nsgName string = 'nsg-ha-web'
+
+resource vnet 'Microsoft.Network/virtualNetworks@2024-05-01' existing = {
+  name: vnetName
+}
+
+resource subnet 'Microsoft.Network/virtualNetworks/subnets@2024-05-01' existing = {
+  parent: vnet
+  name: subnetName
+}
+
+resource nsg 'Microsoft.Network/networkSecurityGroups@2024-05-01' existing = {
+  name: nsgName
+}
