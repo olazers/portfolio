@@ -42,6 +42,12 @@ param vm01Name string = 'vm-ha-web-01'
 @description('Second zone-separated backend VM.')
 param vm02Name string = 'vm-ha-web-02'
 
+@description('Network interface attached to vm-ha-web-01.')
+param vm01NicName string = 'vm-ha-web-01840'
+
+@description('Network interface attached to vm-ha-web-02.')
+param vm02NicName string = 'vm-ha-web-02489'
+
 
 // Existing network resources
 
@@ -111,9 +117,9 @@ resource vm02 'Microsoft.Compute/virtualMachines@2024-07-01' existing = {
 // Existing VM network interfaces
 
 resource vm01Nic 'Microsoft.Network/networkInterfaces@2024-05-01' existing = {
-  name: '${vm01Name}-nic'
+  name: vm01NicName
 }
 
 resource vm02Nic 'Microsoft.Network/networkInterfaces@2024-05-01' existing = {
-  name: '${vm02Name}-nic'
+  name: vm02NicName
 }
