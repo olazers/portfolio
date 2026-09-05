@@ -35,6 +35,19 @@ I am building practical, hands-on experience alongside certifications, with an e
 * Git & GitHub
 * Cloud labs and documentation
 
+### Current Engineering Progress
+
+* Azure administration
+* Identity and RBAC
+* Azure networking
+* Linux administration
+* Azure Key Vault and managed identities
+* Infrastructure as Code with Bicep
+* Azure Monitor and Log Analytics
+* Backup and recovery
+* Security and governance
+* High availability and resiliency
+
 ### Next Engineering Focus
 
 * Azure administration
@@ -48,6 +61,11 @@ I am building practical, hands-on experience alongside certifications, with an e
 * Data engineering
 * Cloud architecture
 * DevOps and DevSecOps
+* Deeper Python automation
+* AI / ML foundations
+* Docker and containers
+* AI infrastructure / MLOps
+* Cloud and AI security
 
 ---
 
@@ -134,10 +152,8 @@ Built and validated a secure secret-management architecture that allows a privat
 
 A key part of this project was testing both allowed and denied operations instead of relying only on the configured role assignment:
 
-```text
-SecretGet → HTTP 200 OK
+SecretGet → HTTP 200 OK  
 SecretSet → HTTP 403 Forbidden
-```
 
 This confirmed that the VM could read the secret it needed while the managed identity was prevented from modifying secrets.
 
@@ -345,6 +361,27 @@ Planned capabilities:
 
 ---
 
+### 🤖 8. AI Infrastructure + Security Platform
+
+**Focus:** AI infrastructure + cloud security
+
+Planned capabilities:
+
+* AI workload deployment
+* Model serving and inference
+* Docker
+* Cloud and GPU infrastructure
+* Kubernetes where appropriate
+* Identity and least privilege
+* Private networking
+* Secrets management
+* AI observability
+* Scaling and performance
+* AI security controls
+* Detection and monitoring
+
+---
+
 # 🧰 Technology Roadmap
 
 ### ☁️ Cloud
@@ -362,6 +399,21 @@ Planned capabilities:
 * APIs & SDKs
 * AI Evaluation
 * AI Monitoring
+* Python for AI
+* NumPy
+* Pandas
+* Machine learning fundamentals
+* Training vs inference
+* Neural network fundamentals
+* PyTorch basics
+* Transformers
+* Tokenization
+* Embeddings
+* LLM APIs
+* Structured outputs
+* Tool / function calling
+* Vector databases
+* Guardrails
 
 ### 🐍 Programming & Automation
 
@@ -370,6 +422,13 @@ Planned capabilities:
 * REST APIs
 * JSON
 * Cloud SDKs
+* Python functions and modules
+* Basic object-oriented programming
+* Virtual environments
+* Error handling
+* Logging
+* Testing and debugging
+* Azure SDKs
 
 ### 🌐 Networking
 
@@ -403,6 +462,16 @@ Planned capabilities:
 * Security gates
 * Policy as Code
 * SBOM
+* Docker introduced during AI application projects before deeper Kubernetes work
+* AI workload deployment
+* Model serving and inference
+* AI containers
+* GPU infrastructure fundamentals
+* Kubernetes for AI workloads
+* MLOps fundamentals
+* Model and application observability
+* AI workload scaling
+* AI cost and performance optimization
 
 ### 📊 Data
 
@@ -434,6 +503,15 @@ Planned capabilities:
 * Zero Trust
 * Threat modeling
 * Security architecture
+* AI application security
+* Prompt injection defenses
+* RAG security
+* AI agent and tool security
+* Agent identity and authorization
+* AI data protection
+* Model endpoint security
+* AI supply-chain security
+* AI threat modeling
 
 ### 📈 Observability
 
@@ -452,19 +530,17 @@ Planned capabilities:
 
 Each major project will include:
 
-```text
-Project
-├── Architecture diagram
-├── README
-├── Infrastructure as Code
-├── Source code
-├── Deployment instructions
-├── Security considerations
-├── Monitoring
-├── Cost considerations
-├── Design decisions
+Project  
+├── Architecture diagram  
+├── README  
+├── Infrastructure as Code  
+├── Source code  
+├── Deployment instructions  
+├── Security considerations  
+├── Monitoring  
+├── Cost considerations  
+├── Design decisions  
 └── Lessons learned
-```
 
 The goal is to demonstrate not only **what I built**, but also **why I designed it that way**.
 
@@ -533,6 +609,18 @@ The journey:
 **Cloud & AI Security**  
 ↓  
 **Solutions Architecture & Consulting**
+
+Additional technical depth developed throughout this journey:
+
+**Programming & Automation**  
+↓  
+**AI / ML Foundations**  
+↓  
+**Docker & Containers**  
+↓  
+**AI Infrastructure / MLOps**  
+↓  
+**AI Security**
 
 ---
 
