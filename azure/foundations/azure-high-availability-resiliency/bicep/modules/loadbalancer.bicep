@@ -1,6 +1,6 @@
 // Lab 5 - Load Balancer Module
 // Deployable public IP and Standard Load Balancer configuration
-// Existing backend pool referenced separately to preserve NIC-based membership
+// Existing NIC-based backend pool referenced by resource ID
 
 targetScope = 'resourceGroup'
 
@@ -24,6 +24,13 @@ param healthProbeName string
 
 @description('Load balancing rule name.')
 param loadBalancingRuleName string
+
+
+var backendPoolId = resourceId(
+  'Microsoft.Network/loadBalancers/backendAddressPools',
+  loadBalancerName,
+  backendPoolName
+)
 
 
 resource loadBalancerPublicIp 'Microsoft.Network/publicIPAddresses@2024-05-01' = {
@@ -106,7 +113,7 @@ resource loadBalancer 'Microsoft.Network/loadBalancers@2024-05-01' = {
           }
 
           backendAddressPool: {
-            id: backendPool.id
+            id: backendPoolId
           }
 
           probe: {
@@ -123,10 +130,4 @@ resource loadBalancer 'Microsoft.Network/loadBalancers@2024-05-01' = {
 }
 
 
-resource backendPool 'Microsoft.Network/loadBalancers/backendAddressPools@2024-05-01' existing = {
-  parent: loadBalancer
-  name: backendPoolName
-}
-
-
-output backendPoolId string = backendPool.id
+output backendPoolId string = backendPoolId
