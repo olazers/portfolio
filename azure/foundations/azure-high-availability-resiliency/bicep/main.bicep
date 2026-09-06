@@ -28,9 +28,6 @@ param loadBalancingRuleName string = 'rule-http-ha-web'
 
 // Compute parameters
 
-param vm01Name string = 'vm-ha-web-01'
-param vm02Name string = 'vm-ha-web-02'
-
 param vm01NicName string = 'vm-ha-web-01840'
 param vm02NicName string = 'vm-ha-web-02489'
 
@@ -48,17 +45,6 @@ module network './modules/network.bicep' = {
 }
 
 
-module compute './modules/compute.bicep' = {
-  name: 'computeModule'
-  params: {
-    vm01Name: vm01Name
-    vm02Name: vm02Name
-    vm01NicName: vm01NicName
-    vm02NicName: vm02NicName
-  }
-}
-
-
 module loadbalancer './modules/loadbalancer.bicep' = {
   name: 'loadBalancerModule'
   params: {
@@ -69,5 +55,17 @@ module loadbalancer './modules/loadbalancer.bicep' = {
     backendPoolName: backendPoolName
     healthProbeName: healthProbeName
     loadBalancingRuleName: loadBalancingRuleName
+  }
+}
+
+
+module compute './modules/compute.bicep' = {
+  name: 'computeModule'
+  params: {
+    location: location
+    vm01NicName: vm01NicName
+    vm02NicName: vm02NicName
+    subnetId: network.outputs.subnetId
+    backendPoolId: loadbalancer.outputs.backendPoolId
   }
 }
