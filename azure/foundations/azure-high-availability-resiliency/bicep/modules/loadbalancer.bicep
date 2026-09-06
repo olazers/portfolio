@@ -1,5 +1,6 @@
 // Lab 5 - Load Balancer Module
 // Deployable public IP and Standard Load Balancer configuration
+// Existing backend pool referenced separately to preserve NIC-based membership
 
 targetScope = 'resourceGroup'
 
@@ -15,7 +16,7 @@ param loadBalancerPublicIpName string
 @description('Frontend IP configuration name.')
 param frontendIpConfigName string
 
-@description('Backend pool name.')
+@description('Existing backend pool name.')
 param backendPoolName string
 
 @description('Health probe name.')
@@ -68,12 +69,6 @@ resource loadBalancer 'Microsoft.Network/loadBalancers@2024-05-01' = {
       }
     ]
 
-    backendAddressPools: [
-      {
-        name: backendPoolName
-      }
-    ]
-
     probes: [
       {
         name: healthProbeName
@@ -83,6 +78,7 @@ resource loadBalancer 'Microsoft.Network/loadBalancers@2024-05-01' = {
           intervalInSeconds: 5
           numberOfProbes: 1
           probeThreshold: 1
+          noHealthyBackendsBehavior: 'AllProbedDown'
         }
       }
     ]
@@ -99,6 +95,8 @@ resource loadBalancer 'Microsoft.Network/loadBalancers@2024-05-01' = {
           enableTcpReset: true
           loadDistribution: 'Default'
           disableOutboundSnat: true
+          enableConnectionTracking: false
+
           frontendIPConfiguration: {
             id: resourceId(
               'Microsoft.Network/loadBalancers/frontendIPConfigurations',
@@ -106,13 +104,11 @@ resource loadBalancer 'Microsoft.Network/loadBalancers@2024-05-01' = {
               frontendIpConfigName
             )
           }
+
           backendAddressPool: {
-            id: resourceId(
-              'Microsoft.Network/loadBalancers/backendAddressPools',
-              loadBalancerName,
-              backendPoolName
-            )
+            id: backendPool.id
           }
+
           probe: {
             id: resourceId(
               'Microsoft.Network/loadBalancers/probes',
@@ -125,8 +121,12 @@ resource loadBalancer 'Microsoft.Network/loadBalancers@2024-05-01' = {
     ]
   }
 }
-output backendPoolId string = resourceId(
-  'Microsoft.Network/loadBalancers/backendAddressPools',
-  loadBalancerName,
-  backendPoolName
-)
+
+
+resource backendPool 'Microsoft.Network/loadBalancers/backendAddressPools@2024-05-01' existing = {
+  parent: loadBalancer
+  name: backendPoolName
+}
+
+
+output backendPoolId string = backendPool.id
