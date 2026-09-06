@@ -125,3 +125,8 @@ resource loadBalancer 'Microsoft.Network/loadBalancers@2024-05-01' = {
     ]
   }
 }
+output backendPoolId string = resourceId(
+  'Microsoft.Network/loadBalancers/backendAddressPools',
+  loadBalancerName,
+  backendPoolName
+)
