@@ -101,22 +101,22 @@ resource loadBalancer 'Microsoft.Network/loadBalancers@2024-05-01' = {
           disableOutboundSnat: true
           frontendIPConfiguration: {
             id: resourceId(
-              'Microsoft.Network/loadBalancers/frontendIPConfigurations'
-              loadBalancerName
+              'Microsoft.Network/loadBalancers/frontendIPConfigurations',
+              loadBalancerName,
               frontendIpConfigName
             )
           }
           backendAddressPool: {
             id: resourceId(
-              'Microsoft.Network/loadBalancers/backendAddressPools'
-              loadBalancerName
+              'Microsoft.Network/loadBalancers/backendAddressPools',
+              loadBalancerName,
               backendPoolName
             )
           }
           probe: {
             id: resourceId(
-              'Microsoft.Network/loadBalancers/probes'
-              loadBalancerName
+              'Microsoft.Network/loadBalancers/probes',
+              loadBalancerName,
               healthProbeName
             )
           }
