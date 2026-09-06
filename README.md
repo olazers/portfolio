@@ -221,6 +221,38 @@ The recovery test went beyond checking that a backup job succeeded. I deleted a 
 
 ---
 
+### ⚖️ Azure High Availability & Resiliency - ✅ Completed
+
+Built and validated a highly available Azure web tier using two private Linux virtual machines distributed across separate Availability Zones behind an Azure Standard Load Balancer.
+
+One thing I wanted to test was whether the application would actually remain available when a backend service failed, rather than relying only on Azure showing the configuration as healthy. I stopped Nginx on each backend separately and confirmed that the Load Balancer continued serving the application through the remaining healthy VM in both directions.
+
+**Hands-on work included:**
+
+* Azure Availability Zones
+* Two private Ubuntu web servers across Zone 1 and Zone 2
+* Azure Standard Load Balancer
+* Backend pools and TCP health probes
+* Load-balancing rules
+* Dedicated HA subnet and Network Security Group
+* NAT Gateway for explicit outbound connectivity
+* Nginx and cloud-init
+* Private backend VMs with no public IP addresses
+* Real two-direction application failover testing
+* Load Balancer backend health validation
+* Bicep infrastructure as code
+* Modular Bicep design
+* ARM What-If analysis
+* Safe infrastructure change management
+* Bicep deployment and post-deployment validation
+* Security and cost cleanup
+
+The infrastructure-as-code portion also gave me useful change-management experience. ARM What-If showed that my initial Load Balancer definition could remove the existing NIC-based backend membership, so I stopped before deployment and changed the Bicep design to reference the working Load Balancer and backend pool instead. The final deployment succeeded, and both backend instances remained healthy afterward.
+
+➡️ [View Project](azure/foundations/azure-high-availability-resiliency/README.md)
+
+---
+
 ## 🏗️ What I'm Building
 
 My goal is to move beyond certification-based learning and create **production-style projects** that demonstrate practical engineering ability.
