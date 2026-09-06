@@ -1,5 +1,5 @@
 // Lab 5 - Network Module
-// Existing VNet/subnet references + deployable HA NSG
+// Existing VNet/subnet references + deployable HA network resources
 
 targetScope = 'resourceGroup'
 
@@ -15,10 +15,10 @@ param subnetName string
 @description('HA network security group name.')
 param nsgName string
 
-@description('Existing NAT Gateway name.')
+@description('NAT Gateway name.')
 param natGatewayName string
 
-@description('Existing NAT Gateway public IP name.')
+@description('NAT Gateway public IP name.')
 param natPublicIpName string
 
 resource vnet 'Microsoft.Network/virtualNetworks@2024-05-01' existing = {
@@ -52,10 +52,30 @@ resource nsg 'Microsoft.Network/networkSecurityGroups@2024-05-01' = {
   }
 }
 
-resource natPublicIp 'Microsoft.Network/publicIPAddresses@2024-05-01' existing = {
+resource natPublicIp 'Microsoft.Network/publicIPAddresses@2024-05-01' = {
   name: natPublicIpName
+  location: location
+  sku: {
+    name: 'StandardV2'
+  }
+  properties: {
+    publicIPAllocationMethod: 'Static'
+    publicIPAddressVersion: 'IPv4'
+  }
 }
 
-resource natGateway 'Microsoft.Network/natGateways@2024-05-01' existing = {
+resource natGateway 'Microsoft.Network/natGateways@2024-05-01' = {
   name: natGatewayName
+  location: location
+  sku: {
+    name: 'StandardV2'
+  }
+  properties: {
+    idleTimeoutInMinutes: 4
+    publicIpAddresses: [
+      {
+        id: natPublicIp.id
+      }
+    ]
+  }
 }
