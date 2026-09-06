@@ -1,44 +1,127 @@
 // Lab 5 - Load Balancer Module
-// Existing Load Balancer resource references
+// Deployable public IP and Standard Load Balancer configuration
 
 targetScope = 'resourceGroup'
 
-@description('Existing Load Balancer name.')
+@description('Azure region.')
+param location string = resourceGroup().location
+
+@description('Load Balancer name.')
 param loadBalancerName string
 
-@description('Existing frontend IP configuration name.')
+@description('Load Balancer public IP name.')
+param loadBalancerPublicIpName string
+
+@description('Frontend IP configuration name.')
 param frontendIpConfigName string
 
-@description('Existing backend pool name.')
+@description('Backend pool name.')
 param backendPoolName string
 
-@description('Existing health probe name.')
+@description('Health probe name.')
 param healthProbeName string
 
-@description('Existing load balancing rule name.')
+@description('Load balancing rule name.')
 param loadBalancingRuleName string
 
 
-resource loadBalancer 'Microsoft.Network/loadBalancers@2024-05-01' existing = {
+resource loadBalancerPublicIp 'Microsoft.Network/publicIPAddresses@2024-05-01' = {
+  name: loadBalancerPublicIpName
+  location: location
+  zones: [
+    '1'
+    '2'
+    '3'
+  ]
+  sku: {
+    name: 'Standard'
+    tier: 'Regional'
+  }
+  properties: {
+    publicIPAllocationMethod: 'Static'
+    publicIPAddressVersion: 'IPv4'
+    idleTimeoutInMinutes: 4
+    ddosSettings: {
+      protectionMode: 'VirtualNetworkInherited'
+    }
+  }
+}
+
+
+resource loadBalancer 'Microsoft.Network/loadBalancers@2024-05-01' = {
   name: loadBalancerName
-}
+  location: location
+  sku: {
+    name: 'Standard'
+    tier: 'Regional'
+  }
+  properties: {
+    frontendIPConfigurations: [
+      {
+        name: frontendIpConfigName
+        properties: {
+          privateIPAllocationMethod: 'Dynamic'
+          publicIPAddress: {
+            id: loadBalancerPublicIp.id
+          }
+        }
+      }
+    ]
 
-resource frontendIpConfig 'Microsoft.Network/loadBalancers/frontendIPConfigurations@2024-05-01' existing = {
-  parent: loadBalancer
-  name: frontendIpConfigName
-}
+    backendAddressPools: [
+      {
+        name: backendPoolName
+      }
+    ]
 
-resource backendPool 'Microsoft.Network/loadBalancers/backendAddressPools@2024-05-01' existing = {
-  parent: loadBalancer
-  name: backendPoolName
-}
+    probes: [
+      {
+        name: healthProbeName
+        properties: {
+          protocol: 'Tcp'
+          port: 80
+          intervalInSeconds: 5
+          numberOfProbes: 1
+          probeThreshold: 1
+        }
+      }
+    ]
 
-resource healthProbe 'Microsoft.Network/loadBalancers/probes@2024-05-01' existing = {
-  parent: loadBalancer
-  name: healthProbeName
-}
-
-resource loadBalancingRule 'Microsoft.Network/loadBalancers/loadBalancingRules@2024-05-01' existing = {
-  parent: loadBalancer
-  name: loadBalancingRuleName
+    loadBalancingRules: [
+      {
+        name: loadBalancingRuleName
+        properties: {
+          protocol: 'Tcp'
+          frontendPort: 80
+          backendPort: 80
+          enableFloatingIP: false
+          idleTimeoutInMinutes: 4
+          enableTcpReset: true
+          loadDistribution: 'Default'
+          disableOutboundSnat: true
+          frontendIPConfiguration: {
+            id: resourceId(
+              'Microsoft.Network/loadBalancers/frontendIPConfigurations'
+              loadBalancerName
+              frontendIpConfigName
+            )
+          }
+          backendAddressPool: {
+            id: resourceId(
+              'Microsoft.Network/loadBalancers/backendAddressPools'
+              loadBalancerName
+              backendPoolName
+            )
+          }
+          probe: {
+            id: resourceId(
+              'Microsoft.Network/loadBalancers/probes'
+              loadBalancerName
+              healthProbeName
+            )
+          }
+        }
+      }
+    ]
+  }
 }
