@@ -1,13 +1,10 @@
 // Lab 5 - Compute Module
-// Existing HA VM and NIC resource references
+// Deployable HA VM network interfaces
 
 targetScope = 'resourceGroup'
 
-@description('First HA web VM name.')
-param vm01Name string
-
-@description('Second HA web VM name.')
-param vm02Name string
+@description('Azure region.')
+param location string = resourceGroup().location
 
 @description('First VM network interface name.')
 param vm01NicName string
@@ -15,19 +12,70 @@ param vm01NicName string
 @description('Second VM network interface name.')
 param vm02NicName string
 
+@description('HA web subnet resource ID.')
+param subnetId string
 
-resource vm01 'Microsoft.Compute/virtualMachines@2024-07-01' existing = {
-  name: vm01Name
-}
+@description('Load Balancer backend pool resource ID.')
+param backendPoolId string
 
-resource vm02 'Microsoft.Compute/virtualMachines@2024-07-01' existing = {
-  name: vm02Name
-}
 
-resource vm01Nic 'Microsoft.Network/networkInterfaces@2024-05-01' existing = {
+resource vm01Nic 'Microsoft.Network/networkInterfaces@2024-05-01' = {
   name: vm01NicName
+  location: location
+  properties: {
+    enableAcceleratedNetworking: true
+    enableIPForwarding: false
+
+    ipConfigurations: [
+      {
+        name: 'ipconfig1'
+        properties: {
+          primary: true
+          privateIPAllocationMethod: 'Dynamic'
+          privateIPAddressVersion: 'IPv4'
+
+          subnet: {
+            id: subnetId
+          }
+
+          loadBalancerBackendAddressPools: [
+            {
+              id: backendPoolId
+            }
+          ]
+        }
+      }
+    ]
+  }
 }
 
-resource vm02Nic 'Microsoft.Network/networkInterfaces@2024-05-01' existing = {
+
+resource vm02Nic 'Microsoft.Network/networkInterfaces@2024-05-01' = {
   name: vm02NicName
+  location: location
+  properties: {
+    enableAcceleratedNetworking: true
+    enableIPForwarding: false
+
+    ipConfigurations: [
+      {
+        name: 'ipconfig1'
+        properties: {
+          primary: true
+          privateIPAllocationMethod: 'Dynamic'
+          privateIPAddressVersion: 'IPv4'
+
+          subnet: {
+            id: subnetId
+          }
+
+          loadBalancerBackendAddressPools: [
+            {
+              id: backendPoolId
+            }
+          ]
+        }
+      }
+    ]
+  }
 }
