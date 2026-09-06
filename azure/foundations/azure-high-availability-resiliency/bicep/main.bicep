@@ -37,6 +37,7 @@ param vm02NicName string = 'vm-ha-web-02489'
 module network './modules/network.bicep' = {
   name: 'networkModule'
   params: {
+    location: location
     vnetName: vnetName
     subnetName: subnetName
     nsgName: nsgName
