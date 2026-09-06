@@ -102,7 +102,6 @@ resource loadBalancer 'Microsoft.Network/loadBalancers@2024-05-01' = {
           enableTcpReset: true
           loadDistribution: 'Default'
           disableOutboundSnat: true
-          enableConnectionTracking: false
 
           frontendIPConfiguration: {
             id: resourceId(
