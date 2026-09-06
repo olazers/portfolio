@@ -73,11 +73,9 @@ resource natGateway 'Microsoft.Network/natGateways@2024-05-01' = {
   location: location
   sku: {
     name: 'StandardV2'
-    tier: 'Regional'
   }
   properties: {
     idleTimeoutInMinutes: 4
-    scope: 'Public'
     publicIpAddresses: [
       {
         id: natPublicIp.id
