@@ -19,6 +19,7 @@ param natPublicIpName string = 'nat-pip-ha-web'
 // Load Balancer parameters
 
 param loadBalancerName string = 'lb-ha-web'
+param loadBalancerPublicIpName string = 'pip-lb-ha-web'
 param frontendIpConfigName string = 'fe-ip-ha-web'
 param backendPoolName string = 'be-pool-ha-web'
 param healthProbeName string = 'probe-http-ha-web'
@@ -61,7 +62,9 @@ module compute './modules/compute.bicep' = {
 module loadbalancer './modules/loadbalancer.bicep' = {
   name: 'loadBalancerModule'
   params: {
+    location: location
     loadBalancerName: loadBalancerName
+    loadBalancerPublicIpName: loadBalancerPublicIpName
     frontendIpConfigName: frontendIpConfigName
     backendPoolName: backendPoolName
     healthProbeName: healthProbeName
