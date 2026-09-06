@@ -83,3 +83,4 @@ resource natGateway 'Microsoft.Network/natGateways@2024-05-01' = {
     ]
   }
 }
+output subnetId string = subnet.id
