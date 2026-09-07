@@ -41,6 +41,8 @@ I am building practical, hands-on experience alongside certifications, with an e
 * Identity and RBAC
 * Azure networking
 * Linux administration
+* Windows Server and enterprise administration
+* PowerShell administration
 * Azure Key Vault and managed identities
 * Infrastructure as Code with Bicep
 * Azure Monitor and Log Analytics
@@ -253,6 +255,24 @@ The infrastructure-as-code portion also gave me useful change-management experie
 
 ---
 
+### 🪟 Windows & Enterprise Administration
+
+Built and administered Windows Server workloads in Microsoft Azure, developing practical experience with Windows-based cloud infrastructure, remote administration, PowerShell, networking, security, monitoring, and web services.
+
+**Hands-on work included:**
+
+* Windows Server deployment and administration
+* Remote Desktop (RDP) and Windows remote management
+* Server Manager and Windows Services
+* PowerShell administration
+* Windows Defender Firewall
+* Event Viewer and troubleshooting
+* IIS deployment and validation
+* Windows storage and networking
+* Secure remote administration with Azure Bastion
+
+---
+
 ## 🏗️ What I'm Building
 
 My goal is to move beyond certification-based learning and create **production-style projects** that demonstrate practical engineering ability.
@@ -281,10 +301,16 @@ Planned capabilities:
 
 * Multiple AI agents
 * Tool integration
+* Model Context Protocol (MCP)
+* Structured outputs
 * APIs
 * Automation
 * Identity
-* Agent workflows
+* Agent workflows and orchestration
+* Tool authorization and least privilege
+* Sandboxed agent execution
+* Human approval for high-risk actions
+* Agent observability and tool-call auditing
 * Monitoring
 
 ---
@@ -408,6 +434,9 @@ Planned capabilities:
 * Private networking
 * Secrets management
 * AI observability
+* Agent observability and audit logging
+* Sandboxed agent execution
+* AI agent security testing
 * Scaling and performance
 * AI security controls
 * Detection and monitoring
@@ -444,6 +473,9 @@ Planned capabilities:
 * LLM APIs
 * Structured outputs
 * Tool / function calling
+* Model Context Protocol (MCP)
+* Agent orchestration
+* Sandboxed agent execution
 * Vector databases
 * Guardrails
 
@@ -461,6 +493,20 @@ Planned capabilities:
 * Logging
 * Testing and debugging
 * Azure SDKs
+
+### 🪟 Windows & Enterprise Administration
+
+* Windows Server
+* PowerShell
+* Remote Desktop (RDP)
+* Server Manager
+* Windows Services
+* Windows Defender Firewall
+* Event Viewer
+* IIS
+* Windows storage and networking
+* Secure remote administration
+* Azure Bastion
 
 ### 🌐 Networking
 
@@ -494,6 +540,8 @@ Planned capabilities:
 * Security gates
 * Policy as Code
 * SBOM
+* Human approval and authorization gates
+* AI-generated code security validation
 * Docker introduced during AI application projects before deeper Kubernetes work
 * AI workload deployment
 * Model serving and inference
@@ -540,6 +588,9 @@ Planned capabilities:
 * RAG security
 * AI agent and tool security
 * Agent identity and authorization
+* Human approval and authorization gates for AI agents
+* Sandboxed execution security
+* AI agent security testing
 * AI data protection
 * Model endpoint security
 * AI supply-chain security
@@ -555,6 +606,9 @@ Planned capabilities:
 * Alerts
 * Prometheus
 * Grafana
+* AI agent observability
+* Agent tool-call auditing
+* Agent activity and security logging
 
 ---
 
