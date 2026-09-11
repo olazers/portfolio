@@ -255,21 +255,39 @@ The infrastructure-as-code portion also gave me useful change-management experie
 
 ---
 
-### 🪟 Windows & Enterprise Administration
+### 🪟 Azure Windows & Enterprise Administration - ✅ Completed
 
-Built and administered Windows Server workloads in Microsoft Azure, developing practical experience with Windows-based cloud infrastructure, remote administration, PowerShell, networking, security, monitoring, and web services.
+Deployed and administered a private Windows Server 2025 workload in Azure with a focus on secure remote administration, PowerShell, networking, IIS, storage, troubleshooting, infrastructure as code, and cost-aware cloud operations.
+
+One useful part of this project was troubleshooting the difference between having a working private network configuration and having explicit outbound connectivity. The Windows VM could resolve DNS but could not reach HTTPS endpoints until I traced the issue to the private subnet's outbound design and added a NAT Gateway.
 
 **Hands-on work included:**
 
-* Windows Server deployment and administration
-* Remote Desktop (RDP) and Windows remote management
-* Server Manager and Windows Services
+* Windows Server 2025 Datacenter: Azure Edition
+* Private Windows VM with no public IP
+* Trusted Launch, Secure Boot, and vTPM
+* Secure RDP administration through Azure Bastion
+* Dedicated Windows subnet and Network Security Group
+* NAT Gateway for explicit outbound connectivity
 * PowerShell administration
+* Server Manager and Windows Services
 * Windows Defender Firewall
-* Event Viewer and troubleshooting
-* IIS deployment and validation
-* Windows storage and networking
-* Secure remote administration with Azure Bastion
+* IIS deployment and custom web page validation
+* VNet-to-VNet IIS connectivity testing
+* Azure managed disk administration
+* GPT partitioning and NTFS storage
+* Event Viewer and PowerShell troubleshooting
+* Windows performance monitoring
+* Windows Time Service investigation
+* Azure KMS activation troubleshooting
+* Bicep infrastructure as code
+* Azure What-If analysis and deployment
+* Security-focused evidence sanitization
+* Cost-aware resource cleanup
+
+The troubleshooting work also included investigating historical Windows events before making configuration changes and resolving Windows activation by verifying Azure KMS connectivity before retrying activation. This reinforced the importance of validating the current system state instead of changing configuration simply because an error or warning appears.
+
+➡️ [View Project](azure/foundations/azure-windows-enterprise-administration/README.md)
 
 ---
 
