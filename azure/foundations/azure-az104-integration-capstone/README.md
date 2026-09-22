@@ -437,7 +437,7 @@ The template includes:
 
 Bicep source:
 
-[`bicep/main.bicep`](bicep/main.bicep)
+[`main.bicep`](main.bicep)
 
 ---
 
@@ -659,8 +659,7 @@ The Bicep work reinforced this most clearly. What-If identified changes that cou
 ```text
 azure-az104-integration-capstone/
 ├── README.md
-├── bicep/
-│   └── main.bicep
+├── main.bicep
 └── screenshots/
     ├── 01-public-application-validation.png
     ├── 02-load-balancer-health.png
