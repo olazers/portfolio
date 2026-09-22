@@ -291,6 +291,53 @@ The troubleshooting work also included investigating historical Windows events b
 
 ---
 
+### 🏗️ Azure AZ-104 Integration Capstone - Secure Two-Tier Application Environment - ✅ Completed
+
+Designed, deployed, secured, monitored, governed, backed up, and validated an integrated Azure application environment that brought together the main administration skills developed throughout my AZ-104 lab series.
+
+The architecture used a public Azure Standard Load Balancer as the application entry point while keeping both Linux virtual machines private. Nginx on the web tier reverse-proxied application traffic to the private application tier over TCP 8080.
+
+**Hands-on work included:**
+
+* Azure Virtual Network and subnet segmentation
+* Private Ubuntu Linux virtual machines with no public IP addresses
+* Network Security Groups and least-access network rules
+* Azure Standard Load Balancer
+* Nginx reverse proxy
+* Azure Bastion for private administration
+* NAT Gateway for controlled outbound connectivity
+* Availability Zones
+* Trusted Launch, Secure Boot, and vTPM
+* System-assigned managed identity
+* Microsoft Entra ID workload authentication
+* Azure Key Vault
+* Azure RBAC and least-privilege secret access
+* Key Vault Secrets User role
+* Authorized secret retrieval validation - HTTP 200
+* Unauthorized secret modification validation - HTTP 403
+* Key Vault network restrictions
+* Azure Monitor and Log Analytics
+* Key Vault diagnostic logging
+* KQL validation and monitoring troubleshooting
+* Azure Policy governance and compliance evaluation
+* Recovery Services vault and Azure VM Backup
+* On-demand backup and recovery-point validation
+* Bicep Infrastructure as Code
+* Azure CLI
+* Azure deployment What-If analysis
+* Safe infrastructure change validation
+* Post-deployment application validation
+* Security-focused evidence sanitization
+* Cost-aware resource cleanup
+
+One of the most useful parts of this capstone was seeing how changes to one Azure service could affect several others. Networking affected Key Vault access and outbound connectivity, NSG rules affected application communication, identity permissions controlled what the application could do, and diagnostic settings determined whether activity could be investigated.
+
+The Bicep work also reinforced the importance of validating infrastructure changes before deployment. The initial What-If identified changes that could remove working subnet configuration, so I corrected the template and repeated the validation until there were no destructive changes before deploying it successfully.
+
+➡️ [View Project](azure/foundations/azure-az104-integration-capstone/README.md)
+
+---
+
 ## 🏗️ What I'm Building
 
 My goal is to move beyond certification-based learning and create **production-style projects** that demonstrate practical engineering ability.
