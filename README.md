@@ -75,23 +75,23 @@ I am building practical, hands-on experience alongside certifications, with an e
 
 | Period | Focus | Certification / Goal |
 | --- | --- | --- |
-| Jul–Aug 2026 | Cloud & AI Foundations | ✅ AZ-900 |
-| Jul–Aug 2026 | AI Fundamentals | ✅ AI-900 |
+| Jul-Aug 2026 | Cloud & AI Foundations | ✅ AZ-900 |
+| Jul-Aug 2026 | AI Fundamentals | ✅ AI-900 |
 | Aug 2026 | Data Fundamentals | ✅ DP-900 |
 | Aug 2026 | Security Fundamentals | ✅ SC-900 |
-| Sep–Oct 2026 | Azure Engineering | 🎯 AZ-104 |
-| Sep–Oct 2026 | Cloud Automation | 🐍 Python + Linux |
+| Sep-Oct 2026 | Azure Engineering | 🎯 AZ-104 |
+| Sep-Oct 2026 | Cloud Automation | 🐍 Python + Linux |
 | Nov 2026 | Networking | 🎯 CCNA |
 | Dec 2026 | Azure Networking | 🎯 AZ-700 |
-| Jan–Feb 2027 | AI Engineering | 🎯 AI-103 |
+| Jan-Feb 2027 | AI Engineering | 🎯 AI-103 |
 | Feb 2027 | Advanced AI | 🤖 Multi-Agent AI |
-| Mar–Apr 2027 | Data Engineering | 🎯 DP-700 |
-| May–Jun 2027 | Cloud Architecture | 🎯 AZ-305 |
-| Jul–Aug 2027 | Multi-Cloud | ☁️ AWS Solutions Architect |
-| Sep–Oct 2027 | IaC & Cloud Native | 🎯 Terraform + CKA |
+| Mar-Apr 2027 | Data Engineering | 🎯 DP-700 |
+| May-Jun 2027 | Cloud Architecture | 🎯 AZ-305 |
+| Jul-Aug 2027 | Multi-Cloud | ☁️ AWS Solutions Architect |
+| Sep-Oct 2027 | IaC & Cloud Native | 🎯 Terraform + CKA |
 | Nov 2027 | DevOps + DevSecOps | 🎯 AZ-400 |
-| Dec 2027–Jan 2028 | Advanced Cloud + AI Security | 🎯 Security+ + SC-500 |
-| Feb–Mar 2028 | Portfolio & Career | 🚀 Flagship Projects |
+| Dec 2027-Jan 2028 | Advanced Cloud + AI Security | 🎯 Security+ + SC-500 |
+| Feb-Mar 2028 | Portfolio & Career | 🚀 Flagship Projects |
 
 ---
 
